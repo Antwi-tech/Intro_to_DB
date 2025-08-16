@@ -1,21 +1,17 @@
 #!/usr/bin/python3
-"""
-MySQLServer.py
-Script to create a database 'alx_book_store' in MySQL server.
-If the database already exists, it will not fail.
-"""
 
 import mysql.connector
 from mysql.connector import Error
 
 def create_database():
     connection = None
+    cursor = None
     try:
-        # Connect to MySQL server (adjust user & password accordingly)
+        # Connect to MySQL server (update username/password if needed)
         connection = mysql.connector.connect(
             host="localhost",
             user="Antwiwaa",        
-            password="ant12" 
+            password="Antwi123" ord
         )
 
         if connection.is_connected():
@@ -27,11 +23,11 @@ def create_database():
         print(f"Error while connecting to MySQL: {e}")
 
     finally:
-        # Safely close connection
-        if connection is not None and connection.is_connected():
+        # Close cursor and connection safely
+        if cursor is not None:
             cursor.close()
+        if connection is not None and connection.is_connected():
             connection.close()
-            # print("MySQL connection closed.")  # Optional logging
 
 if __name__ == "__main__":
     create_database()
